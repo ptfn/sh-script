@@ -7,7 +7,7 @@ split-window -v \
 'bashtop'\; \
 select-pane -t 0 \; \
 split-window -h \
-'tty-clock -sc'\; \
+'tty-clock -sct'\; \
 split-window -h \
 'calcurse'\; \
 select-pane -t 0 \; \
