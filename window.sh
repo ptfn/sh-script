@@ -2,7 +2,7 @@
 
 tmux \
 new-session \
-'task ; bash'\; \
+'task ; zsh'\; \
 split-window -v \
 'bashtop'\; \
 select-pane -t 0 \; \
@@ -18,4 +18,4 @@ split-window -v \
 'vis'\; \
 select-pane -t 4 \; \
 split-window -h \
-'neofetch | lolcat ; bash'\; \
+'cmus'\; \
