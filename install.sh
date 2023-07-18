@@ -12,31 +12,39 @@ requiments=$1
 name=$(whoami)
 echo "${green}Hello $name!${reset}"
 
+OK() {
+	echo -e "${green}--- $1 OK ---${reset}"
+}
+
+FAIL() {
+	echo -e "${red}--- $1 FAILS ---${reset}"
+}
+
+INSTALL() {
+	${1} && OK $2 || FAIL $2
+}
+
+UPDATE() {
+	sudo apt update && sudo apt upgrade
+}
+
+UTILS() {
+	sudo apt install aircrack-ng alsa-utils acpi arandr ark atop audacity bashtop bastet blueman bluemon brightnessctl calcurse cmake cmatrix cmus compton conky conky-all cowsay cpu-x dieharder dino-im duf exa flameshot fonts-font-awesome geoclue-2.0 ghc git gnuplot-x11 gparted gpg gpp greed guile-3.0 gxkb hardinfo hexedit htop i3-wm inxi keepassxc krita libreoffice lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings light lolcat make mc ncdu neofetch net-tools ninvaders nitrogen nmap notify-osd obs-studio okular openttd pavucontrol pulseaudio python3-pip qbittorrent quakespasm ranger redshift rofi safeeyes screenfetch sensors-applet shc shotwell speedtest-cli stress suckless-tools taskwarrior thinkfan tmux tty-clock viewnior vim vlc wireshark xfce4-terminal xscreensaver
+}
+
+GIT() {
+
+}
+
+# COPY() {
+
+# }
+
+PYTHON() {
+	sudo apt install python3.10 python3-pip python3-pyqt5 pyqt5-dev-tools qttools5-dev-tools 
+}
+
 # install
-sudo apt update &&
-	echo -e "${green}=== Update OK ===${reset}" ||
-	echo -e "${red}=== Update FAILS ===${reset}"
-
-sudo apt upgrade &&
-	echo -e "${green}=== Upgrade OK ===${reset}" ||
-	echo -e "${red}=== Upgrade FAILS ===${reset}"
-
-sudo apt -y install python3.8 &&
-	echo -e "${green}=== Python OK ===${reset}" ||
-	echo -e "${red}=== Python FAILS ===${reset}"
-
-pip3 install -r $requiments &&
-	echo -e "${green}=== Requiments OK ===${reset}" ||
-	echo -e "${red}=== Requiments FAILS ===${reset}"
-
-sudo curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh &&
-	echo -e "${green}=== Rust OK ===${reset}" ||
-	echo -e "${red}=== Rust FAILS ===${reset}"
-
-sudo apt -y install guile-3.0 &&
-	echo -e "${green}=== Lisp OK ===${reset}" ||
-	echo -e "${red}=== Lisp FAILS ===${reset}"
-
-sudo apt -y install ghc &&
-	echo -e "${green}=== Haskell OK ===${reset}" ||
-	echo -e "${red}=== Haskell FAILS ===${reset}"
+INSTALL "UPDATE" "UPDATE"
+INSTALL "UTILS" "UTILS"
+INSTALL "PYTHON" "PYTHON"

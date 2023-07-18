@@ -2,7 +2,7 @@
 
 tmux \
 new-session \
-'task ; zsh'\; \
+'task ; fish'\; \
 split-window -v \
 'bashtop'\; \
 select-pane -t 0 \; \
